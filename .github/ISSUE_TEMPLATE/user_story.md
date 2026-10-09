@@ -1,5 +1,11 @@
 # Historia de Usuario
-
+---
+name: Historia de Usuario
+about: Plantilla para registrar Historias de Usuario del proyecto
+title: 'US: '
+labels: ''
+assignees: ''
+---
 ### Descripción
 **Como** cliente registrado
 **Quiero** consultar la disponibilidad de coches de alquiler
