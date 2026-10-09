@@ -1,4 +1,3 @@
-# Historia de Usuario
 ---
 name: Historia de Usuario
 about: Plantilla para registrar Historias de Usuario del proyecto
