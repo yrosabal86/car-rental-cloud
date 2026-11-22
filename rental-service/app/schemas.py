@@ -184,7 +184,7 @@ class PickupRequest(BaseModel):
 
 class ReturnRequest(BaseModel):
     end_mileage: int = Field(ge=0)
-    damage_fee: Decimal = Field(default=Decimal("0"), ge=0, max_digits=8, decimal_places=2)
+    damage_fee: Decimal = Field(default=Decimal(0), ge=0, max_digits=8, decimal_places=2)
     requires_maintenance: bool = False
     notes: str | None = None
 

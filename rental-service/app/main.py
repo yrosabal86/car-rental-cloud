@@ -1,12 +1,13 @@
 from contextlib import asynccontextmanager
-from sqlalchemy import text
 
 from fastapi import FastAPI
+from sqlalchemy import text
 
+from .config import settings
 from .database import SessionLocal, init_db
 from .routers import fleet, pricing, rentals, reservations
-from .config import settings
 from .seed import seed_demo_vehicles, seed_season_rules
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

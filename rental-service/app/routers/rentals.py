@@ -1,4 +1,4 @@
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 from decimal import Decimal
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -66,7 +66,7 @@ def return_vehicle(rental_id: int, payload: ReturnRequest, db: Session = Depends
 
     reservation = rental.reservation
     vehicle = reservation.vehicle
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     today = now.date()
 
     nights = (reservation.end_date - reservation.start_date).days

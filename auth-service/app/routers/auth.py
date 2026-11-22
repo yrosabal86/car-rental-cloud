@@ -1,4 +1,4 @@
-from datetime import date, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
@@ -48,7 +48,7 @@ def register_customer(payload: RegisterRequest, db: Session = Depends(get_db)):
 @router.post("/login", response_model=TokenOut)
 def login(form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     """Login con bloqueo temporal tras varios intentos fallidos (anti fuerza bruta)."""
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     user = db.scalar(select(User).where(User.email == form.username.lower()))
 
     if user and user.locked_until and user.locked_until > now:

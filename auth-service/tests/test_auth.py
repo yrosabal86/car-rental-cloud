@@ -1,9 +1,11 @@
 import os
+
 os.environ["DATABASE_URL"] = "sqlite:///./test_auth.db"
 os.environ["JWT_SECRET"] = "test-secret-key-ci"
 os.environ["INTERNAL_API_KEY"] = "test-internal-key-ci"
 
 from fastapi.testclient import TestClient
+
 from app.main import app
 
 

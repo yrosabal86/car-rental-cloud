@@ -113,7 +113,7 @@ def calculate_quote(
     extras_detail = {}
     for extra in extras:
         extras_detail[extra] = float(money(EXTRAS_PER_DAY[extra] * nights))
-    extras_total = money(sum((Decimal(str(v)) for v in extras_detail.values()), Decimal("0")))
+    extras_total = money(sum((Decimal(str(v)) for v in extras_detail.values()), Decimal(0)))
 
     taxable = rental_total + extras_total
     tax = money(taxable * TAX_RATE)

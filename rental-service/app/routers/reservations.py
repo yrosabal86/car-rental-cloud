@@ -1,4 +1,4 @@
-from datetime import date, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta
 from decimal import Decimal
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -133,7 +133,7 @@ def cancel_reservation(reservation_id: int, db: Session = Depends(get_db), user:
         fee, rate = cancellation_fee(reservation.quoted_total, reservation.start_date, date.today())
     reservation.status = "cancelled"
     reservation.cancellation_fee = fee
-    reservation.cancelled_at = datetime.now(timezone.utc)
+    reservation.cancelled_at = datetime.now(UTC)
     db.commit()
     return CancellationOut(
         reservation_id=reservation.id,

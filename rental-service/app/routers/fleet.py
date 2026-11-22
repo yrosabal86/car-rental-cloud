@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy import func, select
@@ -7,7 +7,14 @@ from sqlalchemy.orm import Session
 from ..database import get_db
 from ..deps import STAFF, require_roles
 from ..models import Reservation, Vehicle
-from ..schemas import CategoryUtilization, Category, MaintenanceOut, VehicleCreate, VehicleOut, VehicleUpdate
+from ..schemas import (
+    Category,
+    CategoryUtilization,
+    MaintenanceOut,
+    VehicleCreate,
+    VehicleOut,
+    VehicleUpdate,
+)
 from ..services.availability import BLOCKING_STATUSES
 from ..services.fleet_ops import send_to_maintenance
 
